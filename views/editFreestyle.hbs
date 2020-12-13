@@ -9,24 +9,24 @@
         <div class="form-item-wrapper flexed-item">
             <label for="freestyle-title" class="label-name label">What is the name of your freestyle?</label>
             <input id="freestyle-title" type="text" name="title" class="input-text input" placeholder="Tupac"
-                value="Spitting fire">
+                value="{{title}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="freestyle-descr" class="label-descr label">Description</label>
             <input id="freestyle-descr" type="text" name="description" class="input-text input"
-                placeholder="The better sneakers to run" value="Representing Brooklyn">
+                placeholder="The better sneakers to run" value="{{description}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="social-media" class="label-price label">Plug one of your social</label>
-            <input id="social-media" type="text" name="social" class="sneaker-price input" value="Instagram @Yung devo">
+            <input id="social-media" type="text" name="social" class="sneaker-price input" value="{{social}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="video-file" class="label-price label">Video</label>
-            <input id="video-file" type="file" name="video" class="sneaker-price input">
+            <input id="video-file" type="file" name="url" class="sneaker-price input" value="{{video}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="style" class="label-price label">Style</label>
-            <input id="style" type="text" name="style" class="sneaker-price input" value="Instagram @Yung devo">
+            <input id="style" type="text" name="style" class="sneaker-price input" value="{{style}}">
         </div>
         <button class="button-primary add-sneaker-btn">Edit my freestyle</button>
     </form>
