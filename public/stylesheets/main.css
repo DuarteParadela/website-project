@@ -1,10 +1,9 @@
-@import "./reset.css";
 @import "./header-nav.css";
 @import "./footer.css";
 @import "./form.css";
 @import "./button.css";
 @import "./products.css";
-@import "./products-forms.css";
+@import "./freestyle-forms.css";
 @import "./products-manage.css";
 @import "./login-signup.css";
 @import "./one-product.css";
