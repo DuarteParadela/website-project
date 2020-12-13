@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 var express = require("express");
 var router = express.Router();
-const VideoModel = require("./../models/Post");
+const PostModel = require("./../models/Post");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
-
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
