@@ -34,14 +34,14 @@ router.post(
     }
     try {
       await PostModel.create(newPost);
-      res.redirect("/dashboard");
+      res.redirect("/");
     } catch (err) {
       next(err);
     }
   }
 );
 
-router.get("/one-product/:id", protectPrivateRoute, async (req, res) => {
+router.get("/publication/:id", protectPrivateRoute, async (req, res) => {
   try {
     const post = await PostModel.findById(req.params.id);
     res.render("publication", post);
