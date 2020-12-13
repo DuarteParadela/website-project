@@ -1,7 +1,7 @@
 require("dotenv").config();
-require("./../config/mongo");
+require("../config/mongo");
 
-const UserModel = require("./../models/User");
+const UserModel = require("../models/User");
 
 const users = [
   {

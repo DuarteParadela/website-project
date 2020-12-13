@@ -8,30 +8,31 @@
                 <div class="nav-logo">
                     <a href="/" class="flexed-item">
                         <span class="logo-item circle"></span>
-                        <h2 class="logo-item">NewTalent</h2>
+                        <h2 class="logo-item">New Talent</h2>
                     </a>
                 </div>
                 <ul class="nav-link flexed-item">
                     <li class="nav-item animated-link">
-                        <a href="/sneakers/collection">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li class="nav-item animated-link">
-                        <a href="/sneakers/men">Dashboard</a>
+                        <a href="/hotfive">Hot 5</a>
                     </li>
                     <li class="nav-item animated-link">
-                        <a href="/sneakers/women">Women</a>
-                    </li>
-                    <li class="nav-item animated-link">
-                        <a href="/sneakers/kids">Kids</a>
+                        <a href="/dashboard">Dashboard</a>
                     </li>
                     {{#if isLoggedIn}}
                     <li class="nav-item animated-link nav-item-admin">
-                        <a href="/prod-add">Add product</a>
+                        <a href="/send-freestyle">Send my freestyle</a>
                     </li>
-                    <li class="nav-item animated-link nav-item-admin">
-                        <a href="/dashboard">Manage products</a>
-                    </li>
+
                     {{/if}}
+
+                    {{#unless isLoggedIn}}
+                    <li class="nav-item animated-link nav-item-admin">
+                        <a href="/send-freestyle">Send my freestyle</a>
+                    </li>
+                    {{/unless}}
                 </ul>
             </div>
             <div class="flexed-item nav-end">
@@ -39,14 +40,17 @@
                 <a href="/signup" id="nav_login" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Sign up</span>
                 </a>
+                <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
+                    <span class="btn-text">Sign in</span>
+                </a>
+
                 {{/unless}}
                 {{#if isLoggedIn}}
                 <a href="/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Log out</span>
                 </a>
                 {{/if}}
-                <i class="fas fa-shopping-cart shop-cart-icon nav-end-item"></i>
             </div>
         </nav>
     </header>
-</div>h
+</div>
