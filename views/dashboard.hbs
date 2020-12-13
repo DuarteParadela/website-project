@@ -1,1 +1,30 @@
-<h1>Hello Dashboard</h1>
+<h1>Dashboard</h1>
+
+<td class="table-division">
+    <div>{{this.title}}"</div>
+</td>
+<td class="table-division">
+    <div>{{this.description}}</div>
+</td>
+<td class="table-division">
+    <div>{{this.social}}</div>
+</td>
+<td class="table-division">
+    <div>{{this.style}}</div>
+</td>
+<td class="table-division">
+    <div>{{this.url}}</div>
+</td>
+<td class="table-division">
+    <div>${{this.date}}</div>
+</td>
+
+<td class="table-division">
+    <a href="/edit-freestyle/{{this._id}}"><span class="fa fa-edit table-icon" data-id-sneaker="{{this._id}}"
+            aria-hidden="true"></span></a>
+</td>
+
+<td class="table-division">
+    <a href="/delete/{{this._id}}"><span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"
+            aria-hidden="true"></span></a>
+</td>
