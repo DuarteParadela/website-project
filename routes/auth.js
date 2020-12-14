@@ -1,11 +1,11 @@
-// const express = require("express");
-// const router = new express.Router();
-// const UserModel = require("./../models/User");
-// const bcrypt = require("bcrypt");
+const express = require("express");
+const router = new express.Router();
+const UserModel = require("./../models/User");
+const bcrypt = require("bcrypt");
 
-// router.get("/signup", (req, res) => {
-//   res.render("signup");
-// });
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 // router.post("/signup", async (req, res, next) => {
 //   try {
@@ -27,9 +27,9 @@
 //   }
 // });
 
-// router.get("/signin", (req, res) => {
-//   res.render("signin");
-// });
+router.get("/signin", (req, res) => {
+  res.render("signin");
+});
 
 // router.post("/signin", async (req, res, next) => {
 //   const { email, password } = req.body;
@@ -54,10 +54,10 @@
 //   }
 // });
 
-// router.get("/logout", async (req, res, next) => {
-//   req.session.destroy(function (err) {
-//     res.redirect("/signin");
-//   });
-// });
+router.get("/logout", async (req, res, next) => {
+  req.session.destroy(function (err) {
+    res.redirect("/signin");
+  });
+});
 
-// module.exports = router;
+module.exports = router;
