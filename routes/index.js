@@ -9,8 +9,13 @@ router.get("/", function (req, res) {
   res.render("index", { title: "New Talents" });
 });
 
-router.get("/dashboard", function (req, res) {
-  res.render("manageVideos");
+router.get("/dashboard", async (req, res) => {
+  try {
+    const freestyles = await FreestyleModel.find();
+    res.render("manageVideos", { freestyles });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get("/hotfive", function (req, res) {
