@@ -14,7 +14,7 @@ router.post("/signup", async (req, res, next) => {
 
     if (foundUser) {
       req.flash("warning", "Email already registered");
-      res.redirect("/signup");
+      res.redirect("/signin");
     } else {
       const hashedPassword = bcrypt.hashSync(newUser.password, 10);
       newUser.password = hashedPassword;
