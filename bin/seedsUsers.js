@@ -9,7 +9,7 @@ const users = [
     email: "yungpepito@pepito.com",
     avatar: "",
     style: "drill",
-    age: 18,
+    age: 12 / 12 / 1993,
   },
 ];
 

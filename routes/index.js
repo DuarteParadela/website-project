@@ -1,16 +1,17 @@
 var express = require("express");
 var router = express.Router();
 const PostModel = require("./../models/Post");
+// const DataModel = require("./../models/Data");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
 router.get("/", function (req, res) {
-  res.render("index", { title: "New Talent" });
+  res.render("index", { title: "New Talents" });
 });
 
 router.get("/dashboard", function (req, res) {
-  res.render("dashboard");
+  res.render("manageVideos");
 });
 
 router.get("/hotfive", function (req, res) {
@@ -43,7 +44,7 @@ router.post(
     }
     try {
       await PostModel.create(newPost);
-      res.redirect("/");
+      res.redirect("/dashboard");
     } catch (err) {
       next(err);
     }
@@ -80,7 +81,7 @@ router.post(
     }
     try {
       await PostModel.findByIdAndUpdate(req.params.id, editPost, { new: true });
-      res.redirect("/");
+      res.redirect("/dashboard");
     } catch (err) {
       next(err);
     }
