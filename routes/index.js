@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const PostModel = require("./../models/Post");
-// const DataModel = require("./../models/Data");
+const FreestyleModel = require("./../models/Freestyle");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
@@ -36,14 +35,14 @@ router.post(
   "/send-freestyle",
   uploader.single("video"),
   async (req, res, next) => {
-    const newPost = { ...req.body };
+    const newFreestyle = { ...req.body };
     if (!req.file) {
-      newPost.video = undefined;
+      newFreestyle.video = undefined;
     } else {
-      newPost.video = req.file.path;
+      newFreestyle.video = req.file.path;
     }
     try {
-      await PostModel.create(newPost);
+      await FreestyleModel.create(newFreestyle);
       res.redirect("/dashboard");
     } catch (err) {
       next(err);
@@ -53,8 +52,8 @@ router.post(
 
 router.get("/publication/:id", async (req, res) => {
   try {
-    const post = await PostModel.findById(req.params.id);
-    res.render("publication", post);
+    const freestyle = await FreestyleModel.findById(req.params.id);
+    res.render("publication", freestyle);
   } catch (err) {
     next(err);
   }
@@ -62,8 +61,8 @@ router.get("/publication/:id", async (req, res) => {
 
 router.get("/edit-freestyle/:id", async function (req, res, next) {
   try {
-    const post = await PostModel.findById(req.params.id);
-    res.render("editFreestyle", post);
+    const freestyle = await FreestyleModel.findById(req.params.id);
+    res.render("editFreestyle", freestyle);
   } catch (err) {
     next(err);
   }
@@ -73,14 +72,16 @@ router.post(
   "/edit-freestyle/:id",
   uploader.single("video"),
   async (req, res, next) => {
-    const editPost = { ...req.body };
+    const editFreestyle = { ...req.body };
     if (!req.file) {
-      editPost.video = undefined;
+      editFreestyle.video = undefined;
     } else {
-      editPost.video = req.file.path;
+      editFreestyle.video = req.file.path;
     }
     try {
-      await PostModel.findByIdAndUpdate(req.params.id, editPost, { new: true });
+      await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
+        new: true,
+      });
       res.redirect("/dashboard");
     } catch (err) {
       next(err);
@@ -90,7 +91,7 @@ router.post(
 
 router.get("/delete/:id", async function (req, res, next) {
   try {
-    await PostModel.findByIdAndRemove(req.params.id);
+    await FreestyleModel.findByIdAndRemove(req.params.id);
     res.redirect("/dashboard");
   } catch (err) {
     next(err);

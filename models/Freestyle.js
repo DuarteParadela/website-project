@@ -7,8 +7,8 @@ let FreestyleSchema = new Schema({
   social: String,
   style: String,
   url: String,
-  likes: [récupérer Id du User : A récup sur artistify],
-  dislikes: Number,
+  likes: [{ type: Schema.Types.ObjectId, ref: "like" }],
+  dislikes: [{ type: Schema.Types.ObjectId, ref: "dislike" }],
   date: Date,
 });
 
