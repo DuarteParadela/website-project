@@ -1,0 +1,32 @@
+<div class="big-container manage-products-wrapper">
+    <h3 class="manage-products-title">Your videos</h3>
+</div>
+<div>
+    <table class="product-manage-table">
+        <thead>
+            <tr class="table-row">
+                <th class="table-head">Title</th>
+                <th class="table-head">Description</th>
+                <th class="table-head">Social</th>
+                <th class="table-head">Style</th>
+                <th class="table-head">Video</th>
+                <th class="table-head">Date</th>
+                <th class="table-head">Edit</th>
+                <th class="table-head">Delete</a></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each posts}}
+            <tr class="table-row">
+                {{> dashboard_videos}}
+            </tr>
+            {{/each}}
+            {{#unless posts}}
+            <tr>
+                <td colspan="6">no posts yet</td>
+            </tr>
+            {{/unless}}
+        </tbody>
+    </table>
+</div>

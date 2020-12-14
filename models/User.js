@@ -11,7 +11,7 @@ let UserSchema = new Schema({
       "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
   },
   style: String,
-  age: Number,
+  age: Date,
 });
 
 const UserModel = mongoose.model("user", UserSchema);
