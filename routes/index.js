@@ -54,6 +54,8 @@ router.post(
     } catch (err) {
       next(err);
     }
+  }
+);
 
 router.get("/publication/:id", async (req, res) => {
   try {

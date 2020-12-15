@@ -18,7 +18,9 @@
 }
 
 h2.logo-item {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
 }
 
 .nav-item {
@@ -52,12 +54,19 @@ h2.logo-item {
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 400;
+  text-decoration: none;
+  color: black;
 }
 
 /* Left part nav items*/
 .nav-end {
   align-items: center;
   margin-left: auto;
+}
+
+#nav_login {
+  text-decoration: none;
+  color: black;
 }
 
 .nav-end-item:first-child {
