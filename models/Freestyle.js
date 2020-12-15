@@ -9,10 +9,7 @@ const FreestyleSchema = new Schema({
   url: String,
   likes: [{ type: Schema.Types.ObjectId, ref: "like" }],
   dislikes: [{ type: Schema.Types.ObjectId, ref: "dislike" }],
-  date: {
-    type: Date,
-    timestamps: true,
-  },
+  date: Date,
 });
 
 const FreestyleModel = mongoose.model("freestyle", FreestyleSchema);
