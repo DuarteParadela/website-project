@@ -1,5 +1,5 @@
-.add-product-form,
-.edit-product-form {
+.send-freestyle-form,
+.edit-freestyle-form {
   width: 30%;
   margin-right: 2rem;
 }
@@ -7,7 +7,7 @@
   width: 30%;
 }
 
-.product-manage-wrapper {
+.freestyle-manage-wrapper {
   padding: 2rem 1.2rem;
 }
 
