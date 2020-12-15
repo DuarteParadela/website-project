@@ -37,24 +37,15 @@ router.get("/send-freestyle", function (req, res) {
 //   }
 // });
 
-router.post(
-  "/send-freestyle",
-  uploader.single("url"),
-  async (req, res, next) => {
-    const newFreestyle = { ...req.body };
-    if (!req.file) {
-      newFreestyle.url = undefined;
-    } else {
-      newFreestyle.url = req.file.path;
-    }
-    try {
-      await FreestyleModel.create(newFreestyle);
-      res.redirect("/dashboard");
-    } catch (err) {
-      next(err);
-    }
+router.post("/send-freestyle", async (req, res, next) => {
+  const newFreestyle = { ...req.body };
+  try {
+    await FreestyleModel.create(newFreestyle);
+    res.redirect("/dashboard");
+  } catch (err) {
+    next(err);
   }
-);
+});
 
 router.get("/publication/:id", async (req, res) => {
   try {
