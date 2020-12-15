@@ -15,7 +15,6 @@ const freestyles = [
       "https://res.cloudinary.com/anojan/image/upload/v1607635448/adidas_nqws23.jpg",
     likes: [],
     dislikes: [],
-    date: "2019-12-06",
   },
 ];
 
