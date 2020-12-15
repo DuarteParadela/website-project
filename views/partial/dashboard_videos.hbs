@@ -1,34 +1,33 @@
-<td class="table-division">
-    <div>{{this.title}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.description}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.social}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.style}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.url}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.likes}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.dislikes}}</div>
-</td>
-<td class="table-division">
-    <div>{{this.date}}</div>
-</td>
+<br>
+<span>TITLE : {{this.title}}</span>
+<br>
 
-<td class="table-division">
-    <a href="/edit-freestyle/{{this._id}}"><span class="fa fa-edit table-icon" data-id-sneaker="{{this._id}}"
-            aria-hidden="true"></span></a>
-</td>
+<span>DESCRIPTION : {{this.description}}</span>
+<br>
 
-<td class="table-division">
-    <a href="/delete/{{this._id}}"><span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"
-            aria-hidden="true"></span></a>
-</td>
+<span>SOCIAL NETWORK: {{this.social}}</span>
+<br>
+
+<span>MUSIC STYLE : {{this.style}}</span>
+<br>
+
+<span>FREESTYLE : {{this.url}}</span>
+<br>
+
+<span>LIKES : {{this.likes}}</span>
+<br>
+
+<span>DISLIKES : {{this.dislikes}}</span>
+<br>
+
+<span>DATE : {{this.date}}</span>
+<br>
+
+<a href="/edit-freestyle/{{this._id}}"><span class="fa fa-edit table-icon" data-id-sneaker="{{this._id}}"
+        aria-hidden="true">Edit</span></a>
+<br>
+
+<a href="/delete/{{this._id}}"><span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"
+        aria-hidden="true">Delete</span></a>
+<br>
+<hr>

@@ -1,7 +1,7 @@
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-let FreestyleSchema = new Schema({
+const FreestyleSchema = new Schema({
   title: String,
   description: String,
   social: String,
@@ -9,7 +9,10 @@ let FreestyleSchema = new Schema({
   url: String,
   likes: [{ type: Schema.Types.ObjectId, ref: "like" }],
   dislikes: [{ type: Schema.Types.ObjectId, ref: "dislike" }],
-  date: Date,
+  date: {
+    type: Date,
+    timestamps: true,
+  },
 });
 
 const FreestyleModel = mongoose.model("freestyle", FreestyleSchema);
