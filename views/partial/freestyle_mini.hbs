@@ -7,11 +7,11 @@
     <p class="product-name">{{this.title}}</p>
     <p class="product-cat">{{this.style}}</p>
     <span>
-        <button onclick="actOnPost(event);" data-post-id="{{ this.id }}">Like
+        <button id="like-btn">Like
         </button> <span id="likes-count-{{ this.id }}">{{ this.likes_count }}</span>
     </span>
     <span>
-        <button onclick="actOnPost(event);" data-post-id="{{ this.id }}">Dislike
+        <button id="dislike-btn">Dislike
         </button> <span id="dislikes-count-{{ this.id }}">{{ this.dislikes_count }}</span>
     </span>
 </div>
