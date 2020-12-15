@@ -6,12 +6,12 @@ const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
 router.get("/", async function (req, res) {
-  const freestyles = await FreestyleModel.find();
+  const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
   res.render("index", { freestyles });
 });
 
 router.get("/dashboard", async function (req, res) {
-  const freestyles = await FreestyleModel.find();
+  const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
   res.render("manageVideos", { freestyles });
 });
 
@@ -98,6 +98,19 @@ router.get("/delete/:id", async function (req, res, next) {
   } catch (err) {
     next(err);
   }
+});
+
+router.post("/publication/:id", (req, res, next) => {
+  const action = req.body.action;
+  const counter = action === "Like" ? 1 : -1;
+  Post.update(
+    { _id: req.params.id },
+    { $inc: { likes: counter } },
+    {},
+    (err, numberAffected) => {
+      res.send("");
+    }
+  );
 });
 
 module.exports = router;

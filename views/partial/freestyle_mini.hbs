@@ -1,7 +1,27 @@
-<a href="/one-product/{{this._id}}" class="product-item-wrapper">
+<a href="/publication/{{this._id}}" class="product-item-wrapper">
     <div class="product-img">
         <img src="{{this.image}}" alt="{{this.name}}">
     </div>
-    <p class="product-name">{{this.name}}</p>
-    <p class="product-cat">{{this.style}}</p>
 </a>
+<div>
+    <p class="product-name">{{this.title}}</p>
+    <p class="product-cat">{{this.style}}</p>
+    <span>
+        <button onclick="actOnPost(event);" data-post-id="{{ this.id }}">Like
+        </button> <span id="likes-count-{{ this.id }}">{{ this.likes_count }}</span>
+    </span>
+    <span>
+        <button onclick="actOnPost(event);" data-post-id="{{ this.id }}">Dislike
+        </button> <span id="dislikes-count-{{ this.id }}">{{ this.dislikes_count }}</span>
+    </span>
+</div>
+
+<span>
+
+
+
+
+</span>
+
+
+</span>
