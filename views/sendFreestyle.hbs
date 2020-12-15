@@ -1,5 +1,5 @@
-<div class="big-container product-manage-wrapper flexed-item">
-    <form action="/send-freestyle" method="post" class="add-product-form" enctype="multipart/form-data">
+<div class="big-container freestyle-manage-wrapper flexed-item ">
+    <form action="/send-freestyle" method="post" class="send-freestyle-form" enctype="multipart/form-data">
         {{!-- {{#if msg}}
         <p class="msg {{msg.status}}">{{msg.txt}}</p>
         {{/if}} --}}
@@ -15,24 +15,24 @@
                 placeholder="Describe your freestyle" value="Representing Brooklyn">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="social-media" class="label-price label">Plug one of your socials</label>
+            <label for="social-media" class="label">Plug one of your socials</label>
             <input id="social-media" type="text" name="social" class="sneaker-price input" value="Instagram @Yung devo">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="video-file" class="label-price label">Video</label>
+            <label for="video-file" class="label">Video</label>
             <input id="video-file" type="text" name="url" class="sneaker-price input"
                 value="https://www.youtube.com/watch?v=vHU6ZRQJ50Q&ab_channel=JColeVEVO">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="image-file" class="label-price label">Image</label>
+            <label for="image-file" class="label">Image</label>
             <input id="image-file" type="file" name="image" class="sneaker-price input">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="style" class="label-price label">Style</label>
+            <label for="style" class="label">Style</label>
             <input id="style" type="text" name="style" class="sneaker-price input" value="Drill">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="date" class="label-price label">Date</label>
+            <label for="date" class="label">Date</label>
             <input id="date" type="date" name="date" class="sneaker-price input">
         </div>
         <button class="button-primary add-sneaker-btn">Send my freestyle</button>

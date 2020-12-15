@@ -3,9 +3,6 @@
         <h1 class="form-title">Join the crew</h1>
         <p class="form-subtitle">Discover new talents or display your talent</p>
     </header>
-    {{#if msg}}
-    <p class="message {{msg.status}}">{{msg.text}}</p>
-    {{/if}}
     <form method="post" action="/signup" id="form_user">
         <div class="form-item-wrapper flexed-item">
             <label for="firstname" class="label-ref label">Name</label>
@@ -13,19 +10,14 @@
                 value="yo">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="lastname" class="label-ref label">Email</label>
-            <input id="lastname" type="text" name="email" class="input-text input" placeholder="Biceps" required
-                value="gui">
+            <label for="email" class="label-ref label">email</label>
+            <input id="email" type="email" name="email" class="input-text input" placeholder="albert.biceps@gmail.com"
+                required value="yo@gui.com">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="password" class="label-ref label">Password</label>
             <input id="password" type="password" name="password" class="input-text input" placeholder="••••••" required
                 value="1234">
-        </div>
-        <div class="form-item-wrapper flexed-item">
-            <label for="email" class="label-ref label">avatar</label>
-            <input id="email" type="email" name="avatar" class="input-text input" placeholder="albert.biceps@gmail.com"
-                required value="yo@gui.com">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="lastname" class="label-ref label">Style</label>
