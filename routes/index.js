@@ -5,8 +5,9 @@ const FreestyleModel = require("./../models/Freestyle");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
-router.get("/", function (req, res) {
-  res.render("index", { title: "New Talents" });
+router.get("/", async function (req, res) {
+  const freestyles = await FreestyleModel.find();
+  res.render("index", { freestyles });
 });
 
 router.get("/dashboard", function (req, res) {
@@ -47,8 +48,6 @@ router.post(
     } catch (err) {
       next(err);
     }
-  }
-);
 
 router.get("/publication/:id", async (req, res) => {
   try {
