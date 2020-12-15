@@ -1,7 +1,5 @@
-<h1>Edit Freestyle</h1>
-
 <div class="big-container product-manage-wrapper flexed-item">
-    <form action="/edit-freestyle/{{_id}}" method="post" class="add-product-form" enctype="multipart/form-data">
+    <form action="/edit-freestyle/{{_id}}" method="post" class="add-product-form">
         {{!-- {{#if msg}}
         <p class="msg {{msg.status}}">{{msg.txt}}</p>
         {{/if}} --}}
@@ -22,11 +20,15 @@
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="video-file" class="label-price label">Video</label>
-            <input id="video-file" type="file" name="url" class="sneaker-price input" value="{{video}}">
+            <input id="video-file" type="text" name="url" class="sneaker-price input" value="{{video}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="style" class="label-price label">Style</label>
             <input id="style" type="text" name="style" class="sneaker-price input" value="{{style}}">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="date" class="label-price label">Date</label>
+            <input id="date" type="date" name="date" class="sneaker-price input" value="{{date}}">
         </div>
         <button class="button-primary add-sneaker-btn">Edit my freestyle</button>
     </form>

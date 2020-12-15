@@ -1,7 +1,7 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
-const uploader = require("./../config/cloudinary");
+//const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
@@ -38,14 +38,15 @@ router.get("/send-freestyle", function (req, res) {
 
 router.post(
   "/send-freestyle",
-  uploader.single("video"),
+  // uploader.single("video"),
   async (req, res, next) => {
     const newFreestyle = { ...req.body };
-    if (!req.file) {
-      newFreestyle.video = undefined;
-    } else {
-      newFreestyle.video = req.file.path;
-    }
+    console.log("newFreestyle");
+    // if (!req.file) {
+    //   newFreestyle.video = undefined;
+    // } else {
+    //   newFreestyle.video = req.file.path;
+    // }
     try {
       await FreestyleModel.create(newFreestyle);
       res.redirect("/dashboard");
@@ -55,10 +56,10 @@ router.post(
   }
 );
 
-router.get("/publication/:id", async (req, res) => {
+router.get("/freestyle/:id", async (req, res) => {
   try {
-    const freestyle = await FreestyleModel.findById(req.params.id);
-    res.render("publication", freestyle);
+    const onefreestyle = await FreestyleModel.findById(req.params.id);
+    res.render("publication", onefreestyle);
   } catch (err) {
     next(err);
   }
@@ -75,14 +76,14 @@ router.get("/edit-freestyle/:id", async function (req, res, next) {
 
 router.post(
   "/edit-freestyle/:id",
-  uploader.single("video"),
+  // uploader.single("video"),
   async (req, res, next) => {
     const editFreestyle = { ...req.body };
-    if (!req.file) {
-      editFreestyle.video = undefined;
-    } else {
-      editFreestyle.video = req.file.path;
-    }
+    // if (!req.file) {
+    //   editFreestyle.video = undefined;
+    // } else {
+    //   editFreestyle.video = req.file.path;
+    // }
     try {
       await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
         new: true,

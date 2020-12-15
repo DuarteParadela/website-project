@@ -1,14 +1,12 @@
-<h1>Send Freestyle</h1>
-
 <div class="big-container product-manage-wrapper flexed-item">
-    <form action="/send-freestyle" method="post" class="add-product-form" enctype="multipart/form-data">
+    <form action="/send-freestyle" method="post" class="add-product-form">
         {{!-- {{#if msg}}
         <p class="msg {{msg.status}}">{{msg.txt}}</p>
         {{/if}} --}}
         <h3 class="form-title">Send your freestyle</h3>
         <div class="form-item-wrapper flexed-item">
             <label for="freestyle-title" class="label-name label">What is the name of your freestyle?</label>
-            <input id="freestyle-title" type="text" name="title" class="input-text input" placeholder="Tupac"
+            <input id="freestyle-title" type="text" name="title" class="input-text input" placeholder="Title"
                 value="Spitting fire">
         </div>
         <div class="form-item-wrapper flexed-item">
@@ -22,11 +20,16 @@
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="video-file" class="label-price label">Video</label>
-            <input id="video-file" type="file" name="url" class="sneaker-price input">
+            <input id="video-file" type="text" name="url" class="sneaker-price input"
+                value="https://www.youtube.com/watch?v=vHU6ZRQJ50Q&ab_channel=JColeVEVO">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="style" class="label-price label">Style</label>
             <input id="style" type="text" name="style" class="sneaker-price input" value="Drill">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="date" class="label-price label">Date</label>
+            <input id="date" type="date" name="date" class="sneaker-price input">
         </div>
         <button class="button-primary add-sneaker-btn">Send my freestyle</button>
     </form>

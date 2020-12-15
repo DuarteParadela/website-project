@@ -5,15 +5,15 @@ const FreestyleModel = require("../models/Freestyle");
 
 const freestyles = [
   {
-    title: "Claqué au sol",
-    description: "String",
-    social: "String",
-    style: "String",
+    title: "Let Her Go",
+    description: "The Kid LAROI",
+    social: "https://www.instagram.com/thekidlaroi/?hl=fr",
+    style: "rap",
     url:
-      "https://res.cloudinary.com/anojan/video/upload/v1607876542/rap%20videos/Kidaki_-_Une_balle_qui_tue_usrh2s.ts",
+      "https://www.youtube.com/watch?v=9fteLHb24A4&ab_channel=LyricalLemonade",
     likes: [],
     dislikes: [],
-    date: `2020-12-13`,
+    date: `2019-12-06`,
   },
 ];
 

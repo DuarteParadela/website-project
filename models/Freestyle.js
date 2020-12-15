@@ -1,7 +1,7 @@
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-let FreestyleSchema = new Schema({
+const FreestyleSchema = new Schema({
   title: String,
   description: String,
   social: String,
