@@ -69,14 +69,3 @@ h2.logo-item {
   font-size: 0.8rem;
   font-weight: 400;
 }
-
-.shop-cart-icon {
-  font-size: 0.8rem;
-  color: rgb(151, 151, 151);
-}
-
-.shop-cart-icon:hover {
-  color: black;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-}

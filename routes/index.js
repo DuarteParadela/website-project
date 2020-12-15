@@ -5,8 +5,9 @@ const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
-router.get("/", function (req, res) {
-  res.render("index", { title: "New Talents" });
+router.get("/", async function (req, res) {
+  const freestyles = await FreestyleModel.find();
+  res.render("index", { freestyles });
 });
 
 router.get("/dashboard", async (req, res) => {
@@ -38,13 +39,13 @@ router.get("/send-freestyle", function (req, res) {
 
 router.post(
   "/send-freestyle",
-  uploader.single("video"),
+  uploader.single("url"),
   async (req, res, next) => {
     const newFreestyle = { ...req.body };
     if (!req.file) {
-      newFreestyle.video = undefined;
+      newFreestyle.url = undefined;
     } else {
-      newFreestyle.video = req.file.path;
+      newFreestyle.url = req.file.path;
     }
     try {
       await FreestyleModel.create(newFreestyle);
