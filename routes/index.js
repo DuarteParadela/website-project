@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
-// const uploader = require("./../config/cloudinary");
+const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
@@ -10,8 +10,9 @@ router.get("/", async function (req, res) {
   res.render("index", { freestyles });
 });
 
-router.get("/dashboard", function (req, res) {
-  res.render("manageVideos");
+router.get("/dashboard", async function (req, res) {
+  const freestyles = await FreestyleModel.find();
+  res.render("manageVideos", { freestyles });
 });
 
 router.get("/hotfive", function (req, res) {
@@ -34,14 +35,14 @@ router.get("/send-freestyle", function (req, res) {
 
 router.post(
   "/send-freestyle",
-  // uploader.single("video"),
+  uploader.single("image"),
   async (req, res, next) => {
     const newFreestyle = { ...req.body };
-    // if (!req.file) {
-    // newFreestyle.video = undefined;
-    // } else {
-    // newFreestyle.video = req.file.path;
-    // }
+    if (!req.file) {
+      newFreestyle.image = undefined;
+    } else {
+      newFreestyle.image = req.file.path;
+    }
     try {
       await FreestyleModel.create(newFreestyle);
       res.redirect("/dashboard");
@@ -71,14 +72,14 @@ router.get("/edit-freestyle/:id", async function (req, res, next) {
 
 router.post(
   "/edit-freestyle/:id",
-  // uploader.single("video"),
+  uploader.single("image"),
   async (req, res, next) => {
     const editFreestyle = { ...req.body };
-    // if (!req.file) {
-    // editFreestyle.video = undefined;
-    // } else {
-    // editFreestyle.video = req.file.path;
-    // }
+    if (!req.file) {
+      editFreestyle.image = undefined;
+    } else {
+      editFreestyle.image = req.file.path;
+    }
     try {
       await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
         new: true,

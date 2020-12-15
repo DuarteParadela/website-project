@@ -1,5 +1,5 @@
 <div class="big-container product-manage-wrapper flexed-item">
-    <form action="/edit-freestyle/{{_id}}" method="post" class="add-product-form">
+    <form action="/edit-freestyle/{{_id}}" method="post" class="add-product-form" enctype="multipart/form-data">
         {{!-- {{#if msg}}
         <p class="msg {{msg.status}}">{{msg.txt}}</p>
         {{/if}} --}}
@@ -21,6 +21,10 @@
         <div class="form-item-wrapper flexed-item">
             <label for="video-file" class="label-price label">Video</label>
             <input id="video-file" type="text" name="url" class="sneaker-price input" value="{{video}}">
+        </div>
+        <div class="form-item-wrapper flexed-item">
+            <label for="image-file" class="label-price label">Image</label>
+            <input id="image-file" type="file" name="Image" class="sneaker-price input" value="{{image}}">
         </div>
         <div class="form-item-wrapper flexed-item">
             <label for="style" class="label-price label">Style</label>

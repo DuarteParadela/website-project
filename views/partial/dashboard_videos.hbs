@@ -14,20 +14,24 @@
 <span>FREESTYLE : {{this.url}}</span>
 <br>
 
+<span>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></span>
+<br>
+
 <span>LIKES : {{this.likes}}</span>
 <br>
 
 <span>DISLIKES : {{this.dislikes}}</span>
 <br>
 
-<span>DATE : {{this.date}}</span>
+<span>DATE : {{formatDate this.date}}</span>
 <br>
 
+
 <a href="/edit-freestyle/{{this._id}}"><span class="fa fa-edit table-icon" data-id-sneaker="{{this._id}}"
-        aria-hidden="true">Edit</span></a>
+                aria-hidden="true">Edit</span></a>
 <br>
 
 <a href="/delete/{{this._id}}"><span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"
-        aria-hidden="true">Delete</span></a>
+                aria-hidden="true">Delete</span></a>
 <br>
 <hr>
