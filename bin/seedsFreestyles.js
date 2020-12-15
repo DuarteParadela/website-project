@@ -11,9 +11,11 @@ const freestyles = [
     style: "rap",
     url:
       "https://www.youtube.com/watch?v=9fteLHb24A4&ab_channel=LyricalLemonade",
+    image:
+      "https://res.cloudinary.com/anojan/image/upload/v1607635448/adidas_nqws23.jpg",
     likes: [],
     dislikes: [],
-    date: `2019-12-06`,
+    date: "2019-12-06",
   },
 ];
 

@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/mongo");
+require("./helpers/hbs");
 
 //base dependencies
 const express = require("express");

@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
-//const uploader = require("./../config/cloudinary");
+// const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
 /* GET home page. */
@@ -9,13 +9,8 @@ router.get("/", function (req, res) {
   res.render("index", { title: "New Talents" });
 });
 
-router.get("/dashboard", async (req, res) => {
-  try {
-    const freestyles = await FreestyleModel.find();
-    res.render("manageVideos", { freestyles });
-  } catch (err) {
-    next(err);
-  }
+router.get("/dashboard", function (req, res) {
+  res.render("manageVideos");
 });
 
 router.get("/hotfive", function (req, res) {
@@ -41,11 +36,10 @@ router.post(
   // uploader.single("video"),
   async (req, res, next) => {
     const newFreestyle = { ...req.body };
-    console.log("newFreestyle");
     // if (!req.file) {
-    //   newFreestyle.video = undefined;
+    // newFreestyle.video = undefined;
     // } else {
-    //   newFreestyle.video = req.file.path;
+    // newFreestyle.video = req.file.path;
     // }
     try {
       await FreestyleModel.create(newFreestyle);
@@ -56,10 +50,10 @@ router.post(
   }
 );
 
-router.get("/freestyle/:id", async (req, res) => {
+router.get("/publication/:id", async (req, res) => {
   try {
-    const onefreestyle = await FreestyleModel.findById(req.params.id);
-    res.render("publication", onefreestyle);
+    const freestyle = await FreestyleModel.findById(req.params.id);
+    res.render("publication", freestyle);
   } catch (err) {
     next(err);
   }
@@ -80,9 +74,9 @@ router.post(
   async (req, res, next) => {
     const editFreestyle = { ...req.body };
     // if (!req.file) {
-    //   editFreestyle.video = undefined;
+    // editFreestyle.video = undefined;
     // } else {
-    //   editFreestyle.video = req.file.path;
+    // editFreestyle.video = req.file.path;
     // }
     try {
       await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
