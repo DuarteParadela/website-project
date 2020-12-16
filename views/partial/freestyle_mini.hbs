@@ -1,13 +1,54 @@
 {{!-- <div class="freestyle-grid"> --}}
-    {{!-- <p class="product-name">{{this.title}}</p>
+
+
+    {{!-- <p class="product-name">{{this.title}}</p> --}}
+
+    {{!-- <div class="container-freestyle">
+        <p class="product-name">{{this.title}}</p>
+        <a href="/publication/{{this._id}}" class="freestyle-item-wrapper">
+            <div class="freestyle-img">
+                <div class="content"> <img src="{{this.image}}" alt="{{this.name}}"></div>
+
+            </div>
+        </a>
+    </div>
     <p class="product-cat">{{this.style}}</p> --}}
+
+    {{!-- WORKING VERSION --}}
+    {{!-- <p class="product-name">{{this.title}}</p> --}}
+
+
+
+
+
+
+    {{#isInArray @root/currentUser._id this.likes}}
+
+    <h2> <a href="/freestyles/{{this._id}}?action=likes">Unlike
+            {{getArrLength
+            this.likes}}</a></h2>
+
+    {{else}}
+    <h2> <a href="/freestyles/{{this._id}}?action=likes">Like
+            {{getArrLength
+            this.likes}}</a></h2>
+    {{/isInArray}}
+
+
+
+
+
+    <h2> <a href="/freestyles/{{this._id}}?action=dislikes">Dislikes {{getArrLength this.dislikes}}</a></h2>
+
     <a href="/publication/{{this._id}}" class="freestyle-item-wrapper">
         <div class="freestyle-img">
             <div class="content"> <img src="{{this.image}}" alt="{{this.name}}"></div>
-
         </div>
-
     </a>
+    {{!-- <p class="product-cat">{{this.style}}</p> --}}
+    {{!-- WORKING VERSION --}}
+
+
     {{!-- <p class="freestyle-name">{{this.title}}</p>
     <p class="freestyle-cat">{{this.style}}</p> --}}
     {{!--
@@ -15,11 +56,3 @@
 
 {{!--
 </div> --}}
-
-
-
-
-<div>
-    {{!-- <p class="product-name">{{this.title}}</p>
-    <p class="product-cat">{{this.style}}</p> --}}
-</div>
