@@ -1,27 +1,20 @@
-<a href="/publication/{{this._id}}" class="product-item-wrapper">
-    <div class="product-img">
-        <img src="{{this.image}}" alt="{{this.name}}">
-    </div>
-</a>
+{{!-- <div class="products-grid"> --}}
+    {{!-- <p class="product-name">{{this.title}}</p>
+    <p class="product-cat">{{this.style}}</p> --}}
+    <a href="/publication/{{this._id}}" class="freestyle-item-wrapper">
+        <div class="freestyle-img">
+            <img src="{{this.image}}" alt="{{this.name}}">
+        </div>
+        <p class="freestyle-name">{{this.title}}</p>
+        <p class="freestyle-cat">{{this.style}}</p>
+    </a>
+    {{!--
+</div> --}}
+
+
+
+
 <div>
-    <p class="product-name">{{this.title}}</p>
-    <p class="product-cat">{{this.style}}</p>
-    <span>
-        <button id="like-btn">Like
-        </button> <span id="likes-count-{{ this.id }}">{{ this.likes_count }}</span>
-    </span>
-    <span>
-        <button id="dislike-btn">Dislike
-        </button> <span id="dislikes-count-{{ this.id }}">{{ this.dislikes_count }}</span>
-    </span>
+    {{!-- <p class="product-name">{{this.title}}</p>
+    <p class="product-cat">{{this.style}}</p> --}}
 </div>
-
-<span>
-
-
-
-
-</span>
-
-
-</span>
