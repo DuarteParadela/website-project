@@ -11,6 +11,10 @@
   border-bottom: 1px solid rgb(212, 212, 212);
   height: 53px;
   padding: 0 1.2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: white;
 }
 
 .nav-logo {
@@ -29,7 +33,6 @@ h2.logo-item {
   align-items: center;
   margin-right: 1.5rem;
   transition: all 0.2s ease-in;
-  transition-property: box-shadow;
 }
 
 .nav-item:last-child {
