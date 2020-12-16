@@ -1,27 +1,58 @@
-<a href="/publication/{{this._id}}" class="product-item-wrapper">
-    <div class="product-img">
-        <img src="{{this.image}}" alt="{{this.name}}">
+{{!-- <div class="freestyle-grid"> --}}
+
+
+    {{!-- <p class="product-name">{{this.title}}</p> --}}
+
+    {{!-- <div class="container-freestyle">
+        <p class="product-name">{{this.title}}</p>
+        <a href="/publication/{{this._id}}" class="freestyle-item-wrapper">
+            <div class="freestyle-img">
+                <div class="content"> <img src="{{this.image}}" alt="{{this.name}}"></div>
+
+            </div>
+        </a>
     </div>
-</a>
-<div>
-    <p class="product-name">{{this.title}}</p>
-    <p class="product-cat">{{this.style}}</p>
-    <span>
-        <button id="like-btn">Like
-        </button> <span id="likes-count-{{ this.id }}">{{ this.likes_count }}</span>
-    </span>
-    <span>
-        <button id="dislike-btn">Dislike
-        </button> <span id="dislikes-count-{{ this.id }}">{{ this.dislikes_count }}</span>
-    </span>
-</div>
+    <p class="product-cat">{{this.style}}</p> --}}
 
-<span>
+    {{!-- WORKING VERSION --}}
+    {{!-- <p class="product-name">{{this.title}}</p> --}}
 
 
 
 
-</span>
 
 
-</span>
+    {{#isInArray @root/currentUser._id this.likes}}
+
+    <h2> <a href="/freestyles/{{this._id}}?action=likes">Unlike
+            {{getArrLength
+            this.likes}}</a></h2>
+
+    {{else}}
+    <h2> <a href="/freestyles/{{this._id}}?action=likes">Like
+            {{getArrLength
+            this.likes}}</a></h2>
+    {{/isInArray}}
+
+
+
+
+
+    <h2> <a href="/freestyles/{{this._id}}?action=dislikes">Dislikes {{getArrLength this.dislikes}}</a></h2>
+
+    <a href="/publication/{{this._id}}" class="freestyle-item-wrapper">
+        <div class="freestyle-img">
+            <div class="content"> <img src="{{this.image}}" alt="{{this.name}}"></div>
+        </div>
+    </a>
+    {{!-- <p class="product-cat">{{this.style}}</p> --}}
+    {{!-- WORKING VERSION --}}
+
+
+    {{!-- <p class="freestyle-name">{{this.title}}</p>
+    <p class="freestyle-cat">{{this.style}}</p> --}}
+    {{!--
+</div> --}}
+
+{{!--
+</div> --}}

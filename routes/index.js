@@ -3,10 +3,12 @@ var router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
+const { array } = require("./../config/cloudinary");
 
 /* GET home page. */
 router.get("/", async function (req, res) {
   const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
+
   res.render("index", { freestyles });
 });
 
@@ -100,17 +102,38 @@ router.get("/delete/:id", async function (req, res, next) {
   }
 });
 
-router.post("/publication/:id", (req, res, next) => {
-  const action = req.body.action;
+router.get("/freestyles/:id", async (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const action = req.query.action;
+
+  const foundFreeStyle = await FreestyleModel.findById(req.params.id);
+  const hasLiked = foundFreeStyle.likes.includes(userId);
+  const hasDisliked = foundFreeStyle.dislikes.includes(userId);
+
+  if (hasLiked && action === "dislikes") {
+    return res.redirect("/");
+  }
+
+  if (hasDisliked && action === "likes") {
+    return res.redirect("/");
+  }
+
+  const arrayAction =
+    (hasLiked && action === "likes") || (hasDisliked && action === "dislikes")
+      ? "$pull"
+      : "$addToSet";
+
+  FreestyleModel.findByIdAndUpdate(
+    req.params.id,
+    {
+      [arrayAction]: { [action]: userId },
+    },
+    { new: true }
+  ).then((yo) => {
+    res.redirect("/");
+  });
+  //const action = req.body.action;
   const counter = action === "Like" ? 1 : -1;
-  Post.update(
-    { _id: req.params.id },
-    { $inc: { likes: counter } },
-    {},
-    (err, numberAffected) => {
-      res.send("");
-    }
-  );
 });
 
 module.exports = router;
