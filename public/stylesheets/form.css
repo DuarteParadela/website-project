@@ -50,3 +50,35 @@ select:focus {
   color: rgb(151, 151, 151);
   font-size: 0.9rem;
 }
+
+/* input:focus {
+  outline: none;
+}
+
+.input {
+  padding: 0.7rem;
+  border: none;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+} */
+/* ::-webkit-input-placeholder { */
+/* Chrome/Opera/Safari */
+/* color: rgb(151, 151, 151);
+  font-size: 0.9rem;
+}
+::-moz-placeholder { */
+/* Firefox 19+ */
+/* color: rgb(151, 151, 151);
+  font-size: 0.9rem; */
+/* }
+:-ms-input-placeholder { */
+/* IE 10+ */
+/* color: rgb(151, 151, 151);
+  font-size: 0.9rem;
+}
+:-moz-placeholder { */
+/* Firefox 18- */
+/* color: rgb(151, 151, 151);
+  font-size: 0.9rem;
+} */

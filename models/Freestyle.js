@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const FreestyleSchema = new Schema(
   {
+    nickname: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,

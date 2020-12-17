@@ -1,32 +1,31 @@
 <section class="sign form-container">
     <header class="form-header">
         <h1 class="form-title">Join the crew</h1>
-        <p class="form-subtitle">Discover new talents or display your talent</p>
+        <p class="form-subtitle">Discover new talents or display yours</p>
     </header>
     <form method="post" action="/signup" id="form_user">
-        <div class="form-item-wrapper flexed-item">
+        <div class="form-item-wrapper flexed-item center-input">
             <label for="firstname" class="label-ref label">Name</label>
-            <input id="firstname" type="text" name="name" class="input-text input" placeholder="Albert" required
-                value="yo">
+            <input id=" firstname" type="text" name="name" class="input-text input" placeholder="Name" required
+                value="">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="email" class="label-ref label">email</label>
-            <input id="email" type="email" name="email" class="input-text input" placeholder="albert.biceps@gmail.com"
-                required value="yo@gui.com">
+            <label for="email" class="label">Email</label>
+            <input id="email" type="email" name="email" class="input-text input" placeholder="Email" required value="">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="password" class="label-ref label">Password</label>
-            <input id="password" type="password" name="password" class="input-text input" placeholder="••••••" required
-                value="1234">
+            <label for="password" class="label">Password</label>
+            <input id="password" type="password" name="password" class="input-text input" placeholder="Choose password"
+                required value="">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="lastname" class="label-ref label">Style</label>
-            <input id="lastname" type="text" name="style" class="input-text input" placeholder="Biceps" required
-                value="gui">
+            <label for="lastname" class=" label">Style</label>
+            <input id="lastname" type="text" name="style" class="input-text input" placeholder="Style" required
+                value="">
         </div>
         <div class="form-item-wrapper flexed-item">
-            <label for="age" class="label-ref label">Age</label>
-            <input id="age" type="date" name="age" class="input-text input" placeholder="18" required value="1234">
+            <label for="age" class="label-age label">Age</label>
+            <input id="age" type="date" name="age" class="input-text input" placeholder="Age" required value="">
         </div>
         <button class="button-primary white">Create Account</button>
     </form>
