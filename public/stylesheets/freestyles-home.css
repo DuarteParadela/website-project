@@ -22,6 +22,8 @@ aside.tag-wrapper {
   margin-right: 0.4rem;
 }
 
+/* /////// TARGETING IN INDEX HBS FILE  ////// */
+
 .freestyle-wrapper {
   width: 77%;
   padding: 2rem 1.5%;
@@ -40,71 +42,48 @@ h4.freestyle-title {
   flex-wrap: wrap;
 }
 
-.freestyle-item-wrapper {
+/* /////// TARGETING IN INDEX HBS FILE  ////// */
+
+#freestyle-wrapper {
   cursor: pointer;
   width: 20%;
   margin-right: 2%;
   margin-bottom: 2%;
-  transition: all 0.2s ease-in;
   display: inline-block;
-  overflow: hidden;
 }
 
-/* .container-freestyle {
-  cursor: pointer;
-  width: 20%;
-  margin-right: 2%;
-  margin-bottom: 2%;
-  transition: all 0.2s ease-in;
-  display: inline-block;
-  overflow: hidden;
-} */
-
-/* .container-freestyle {
-  box-shadow: inset 0 -3px 0 0 #111;
-} */
-
-.freestyle-item-wrapper:hover {
-  box-shadow: inset 0 -3px 0 0 #111;
+.freestyle-wrapper a {
+  color: black;
 }
 
-.freestyle-img {
-  margin-bottom: 0.5rem;
+.freestyle-heading {
+  text-decoration: none;
+}
+
+.btns {
+  color: black;
+  text-decoration: underline;
+}
+
+.square {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
-.freestyle-img:after {
-  display: block;
+#square:after {
   content: "";
+  display: block;
+}
+
+.image-style {
   padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
-.freestyle-img img {
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
-}
-
-.content {
+.image-style img {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-
-.freestyle-name {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 0.1rem;
-  text-decoration: none;
-  color: black;
-}
-
-.freestyle-cat {
-  color: rgb(151, 151, 151);
-  font-size: 0.9rem;
-  margin-bottom: 0.1rem;
-  text-decoration: none;
-  color: black;
+  object-fit: cover;
 }
