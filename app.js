@@ -56,6 +56,6 @@ app.use(require("./middlewares/exposeFlashMessage"));
 
 //routers
 app.use("/", indexRouter);
-// app.use("/", usersRouter);
+app.use("/", usersRouter);
 app.use("/", require("./routes/auth"));
 module.exports = app;

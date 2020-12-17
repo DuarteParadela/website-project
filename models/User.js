@@ -10,7 +10,7 @@ let UserSchema = new Schema({
   //   default:
   //     "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
   // }
-  freestyles: [{ type: Schema.Types.ObjectId, ref: "Freestyle" }],
+  freestyles: [{ type: Schema.Types.ObjectId, ref: "freestyle" }],
   style: String,
   age: Date,
 });

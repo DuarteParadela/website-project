@@ -12,7 +12,13 @@ router.get("/", async function (req, res) {
 });
 
 router.get("/dashboard", async function (req, res) {
-  const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
+  const users = await UserModel.findById(req.session.currentUser._id).populate(
+    "freestyles"
+  );
+  const freestyles = users.freestyles;
+  console.log(users);
+  console.log(freestyles);
+
   res.render("manageVideos", { freestyles });
 });
 
@@ -31,7 +37,13 @@ router.post(
       newFreestyle.image = req.file.path;
     }
     try {
-      await FreestyleModel.create(newFreestyle);
+      const balek = await FreestyleModel.create(newFreestyle);
+      const findUser = await UserModel.findByIdAndUpdate(
+        req.session.currentUser._id,
+        { $push: { freestyles: balek._id } }
+      );
+      console.log(findUser);
+      // console.log(balek);
       res.redirect("/");
     } catch (err) {
       next(err);
@@ -77,9 +89,21 @@ router.post(
       editFreestyle.image = req.file.path;
     }
     try {
-      await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
-        new: true,
-      });
+      // const userUpdate = await UserModel.findByIdAndUpdate(
+      //   req.session.currentUser._id,
+      //   { $pull: { freestyles: req.params.id } }
+      // );
+      const updatedF = await FreestyleModel.findByIdAndUpdate(
+        req.params.id,
+        editFreestyle,
+        {
+          new: true,
+        }
+      );
+      // const findUser = await UserModel.findByIdAndUpdate(
+      //   req.session.currentUser._id,
+      //   { $push: { freestyles: updatedF._id } }
+      // );
       res.redirect("/dashboard");
     } catch (err) {
       next(err);
@@ -89,7 +113,14 @@ router.post(
 
 router.get("/delete/:id", async function (req, res, next) {
   try {
-    await FreestyleModel.findByIdAndRemove(req.params.id);
+    const userUpdate = await UserModel.findByIdAndUpdate(
+      req.session.currentUser._id,
+      { $pull: { freestyles: req.params.id } }
+    );
+    const freestyleUpdate = await FreestyleModel.findByIdAndRemove(
+      req.params.id
+    );
+    console.log(freestyleUpdate);
     res.redirect("/dashboard");
   } catch (err) {
     next(err);
