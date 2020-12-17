@@ -1,0 +1,15 @@
+<div class="big-container manage-products-wrapper">
+    <h3 class="manage-products-title">Your videos</h3>
+</div>
+<div>
+    {{#each freestyles}}
+
+    {{> dashboard_videos}}
+
+    {{/each}}
+
+    {{#unless freestyles}}
+    <p>no freestyles</p>
+    {{/unless}}
+
+</div>
