@@ -1,25 +1,21 @@
-aside.tag-wrapper {
+aside.highlight-wrapper {
   width: 17%;
   padding: 2rem 1.5%;
 }
 
-.tag-title {
-  font-size: 1.2rem;
+.highlight-title {
+  font-size: 1rem;
   border-bottom: 1px solid rgb(212, 212, 212);
   padding-bottom: 0.8rem;
   margin-bottom: 0.8rem;
 }
 
-.tag-list-item {
-  color: rgb(151, 151, 151);
+.highlight-list-item {
+  color: black;
   cursor: pointer;
   line-height: 1.7;
-  display: flex;
-  align-items: center;
-}
-
-.checkbox {
-  margin-right: 0.4rem;
+  position: relative;
+  width: 100%;
 }
 
 /* /////// TARGETING IN INDEX HBS FILE  ////// */
