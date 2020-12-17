@@ -1,39 +1,41 @@
 {{!-- <div class="freestyle-grid"> --}}
 
 
-    {{!-- WORKING LIKE/DISLIKE BUTTON --}}
+        {{!-- WORKING LIKE/DISLIKE BUTTON --}}
 
 
 
 
 
+        <div id="freestyle-wrapper">
 
-    <div id="freestyle-wrapper"><a href="/publication/{{this._id}}">
-            <div class="content">
-                <p>{{this.title}}</p>
-                <p>{{this.style}}</p>
-                <div>
-                    <div class="image-style"> <img class="freestyle-img" src="{{this.image}}" alt="{{this.name}}">
-                        {{#isInArray
-                        @root/currentUser._id
-                        this.likes}}
-                        <div>
-                            <div><a href="/freestyles/{{this._id}}?action=likes">Unlike
-                                    {{getArrLength
-                                    this.likes}}</a>
-                            </div>
-                            {{else}}
-                            <div><a href="/freestyles/{{this._id}}?action=likes">Like
-                                    {{getArrLength
-                                    this.likes}}</a>
-                            </div>
-                            {{/isInArray}}
-                            <a href="/freestyles/{{this._id}}?action=dislikes">Dislikes {{getArrLength
+                <div class="square">
+                        <p class="freestyle-heading">{{this.title}}</p>
+                        <p class="freestyle-heading">{{this.style}}</p>
+                        <a href="/publication/{{this._id}}">
+                                <div class="image-style" style="background-image: url({{this.image}})">
+                        </a>
+
+                </div>
+
+                <div class="buttons">
+                        {{#isInArray @root/currentUser._id this.likes}}
+                        <div><a class="btns" href="/freestyles/{{this._id}}?action=likes">Unlike
+                                        {{getArrLength this.likes}}</a></div>
+
+
+                        {{else}}
+                        <a class="btns" href="/freestyles/{{this._id}}?action=likes">Like
+                                {{getArrLength this.likes}}</a>
+
+                        {{/isInArray}}
+                        <a class="btns" href="/freestyles/{{this._id}}?action=dislikes">Dislikes
+                                {{getArrLength
                                 this.dislikes}}</a>
+                </div>
 
 
-                        </div>
-        </a> </div>
+        </div>
 </div>
 
 

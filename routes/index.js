@@ -47,7 +47,7 @@ router.post(
     }
     try {
       await FreestyleModel.create(newFreestyle);
-      res.redirect("/dashboard");
+      res.redirect("/");
     } catch (err) {
       next(err);
     }
