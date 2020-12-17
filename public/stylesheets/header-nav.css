@@ -12,19 +12,26 @@
   height: 53px;
   padding: 0 1.2rem;
   position: fixed;
-  width: 100%;
+  width: 98%;
   top: 0;
   background-color: white;
+  z-index: 88;
 }
 
 .nav-logo {
   margin-right: 3.5rem;
+  display: flex;
+  align-items: center;
 }
 
 h2.logo-item {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: none;
   color: black;
+}
+
+.nav-logo a {
+  text-decoration: none;
 }
 
 .nav-item {

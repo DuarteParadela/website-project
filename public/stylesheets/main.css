@@ -36,6 +36,7 @@ h4 {
 .big-container {
   display: flex;
   width: 100%;
+  margin-top: 35px;
 }
 
 .container {

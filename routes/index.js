@@ -9,8 +9,8 @@ const { array } = require("./../config/cloudinary");
 /* GET home page. */
 router.get("/", async function (req, res) {
   const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
-
-  res.render("index", { freestyles });
+  const highlighted = await FreestyleModel.find({ style: "Drill" });
+  res.render("index", { freestyles, highlighted });
 });
 
 router.get("/dashboard", async function (req, res) {
