@@ -1,10 +1,12 @@
 module.exports = (req, res, next) => {
   req.session.currentUser = {
-    _id: "5fd34a2bef79d64608a65576", // change the user id here to fit yor needs
-    username: "Anoleboss",
-    avatar: "https://cdn.onlinewebfonts.com/img_258083.png",
+    _id: "5fdbe1aa20cbbd2de84445f5", // change the user id here to fit yor needs
+    name: "admin",
+    // avatar: "https://cdn.onlinewebfonts.com/img_258083.png",
+    style: "admin",
     role: "admin",
-    email: "anoleboss@leboss.com",
+    email: "admin@admin.admin",
+    age: "2020-12-17",
   };
   next();
 };

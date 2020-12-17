@@ -14,9 +14,13 @@
                     <li class="nav-item animated-link">
                         <a href="/">Home</a>
                     </li>
+                    {{#if isAdmin}}
+                    <li class="nav-item animated-link">
+                        <a href="/dashboardAll">All Videos</a>
+                    </li>
+                    {{/if}}
 
                     {{#if isLoggedIn}}
-                    {{/if}}
                     <li class="nav-item animated-link">
                         <a href="/profile">Profile</a>
                     </li>
@@ -26,6 +30,7 @@
                     <li class="nav-item animated-link nav-item-admin">
                         <a href="/send-freestyle">Send my freestyle</a>
                     </li>
+                    {{/if}}
                 </ul>
             </div>
             <div class="flexed-item nav-end">
