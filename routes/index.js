@@ -39,21 +39,16 @@ router.post(
       newFreestyle.image = req.file.path;
     }
     try {
+      const createFreestyle = await FreestyleModel.create(newFreestyle);
+      await UserModel.findByIdAndUpdate(req.session.currentUser._id, {
+        $push: { freestyles: createFreestyle._id },
+      });
       res.redirect("/");
     } catch (err) {
       next(err);
     }
   }
 );
-
-// router.get("/profile/:id", async function (req, res, next) {
-//   try {
-//     const users = await UserModel.findById(req.params.id);
-//     res.render("profile", { users });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 router.get("/publication/:id", async (req, res) => {
   try {
@@ -84,10 +79,6 @@ router.post(
       editFreestyle.image = req.file.path;
     }
     try {
-      // const userUpdate = await UserModel.findByIdAndUpdate(
-      //   req.session.currentUser._id,
-      //   { $pull: { freestyles: req.params.id } }
-      // );
       const updatedF = await FreestyleModel.findByIdAndUpdate(
         req.params.id,
         editFreestyle,
@@ -95,10 +86,6 @@ router.post(
           new: true,
         }
       );
-      // const findUser = await UserModel.findByIdAndUpdate(
-      //   req.session.currentUser._id,
-      //   { $push: { freestyles: updatedF._id } }
-      // );
       res.redirect("/dashboard");
     } catch (err) {
       next(err);
