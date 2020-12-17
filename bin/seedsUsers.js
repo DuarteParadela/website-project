@@ -7,7 +7,7 @@ const users = [
   {
     name: "Yung pepito",
     email: "yungpepito@pepito.com",
-    avatar: "",
+    // avatar: "",
     style: "drill",
     age: "1993-12-06",
   },

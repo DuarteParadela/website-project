@@ -1,37 +1,38 @@
-<br>
-<span>TITLE : {{this.title}}</span>
-<br>
+<div>
+    <br>
+    <div>TITLE : {{this.title}}</div>
+    <br>
 
-<span>DESCRIPTION : {{this.description}}</span>
-<br>
+    <div>DESCRIPTION : {{this.description}}</div>
+    <br>
 
-<span>SOCIAL NETWORK: {{this.social}}</span>
-<br>
+    <div>SOCIAL NETWORK: {{this.social}}</div>
+    <br>
 
-<span>MUSIC STYLE : {{this.style}}</span>
-<br>
+    <div>MUSIC STYLE : {{this.style}}</div>
+    <br>
 
-<span>FREESTYLE : {{this.url}}</span>
-<br>
+    <div>FREESTYLE : <iframe src="{{this.url}}" frameborder="0"></iframe></div>
+    <br>
 
-<span>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></span>
-<br>
+    {{!-- <div>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></div>
+    <br> --}}
 
-<span>LIKES : {{this.likes}}</span>
-<br>
+    <div>LIKES : {{this.likes}}</div>
+    <br>
 
-<span>DISLIKES : {{this.dislikes}}</span>
-<br>
+    <div>DISLIKES : {{this.dislikes}}</div>
+    <br>
 
-<span>DATE : {{formatDate this.date}}</span>
-<br>
+    <div>DATE : {{formatDate this.date}}</div>
+    <br>
 
 
-<a href="/edit-freestyle/{{this._id}}"><span class="fa fa-edit table-icon" data-id-sneaker="{{this._id}}"
-                aria-hidden="true">Edit</span></a>
-<br>
+    <button class="btn"><a href="/edit-freestyle/{{this._id}}" class="btn-text"
+            data-id-sneaker="{{this._id}}">Edit</a></button>
 
-<a href="/delete/{{this._id}}"><span class="fa fa-trash table-icon" data-id-sneaker="{{this._id}}"
-                aria-hidden="true">Delete</span></a>
-<br>
+    <span><button class="btn"><a href="/delete/{{this._id}}" class="btn-text"
+                data-id-sneaker="{{this._id}}">Delete</a></button></span>
+    <br>
+</div>
 <hr>

@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
+const UserModel = require("./../models/User");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 const { array } = require("./../config/cloudinary");
@@ -13,27 +14,19 @@ router.get("/", async function (req, res) {
 });
 
 router.get("/dashboard", async function (req, res) {
-  const freestyles = await FreestyleModel.find().sort({ createdAt: -1 });
-  res.render("manageVideos", { freestyles });
-});
+  const users = await UserModel.findById(req.session.currentUser._id).populate(
+    "freestyles"
+  );
+  const freestyles = users.freestyles;
+  console.log(users);
+  console.log(freestyles);
 
-router.get("/hotfive", function (req, res) {
-  res.render("hotFive");
+  res.render("manageVideos", { freestyles });
 });
 
 router.get("/send-freestyle", function (req, res) {
   res.render("sendFreestyle");
 });
-
-// router.post("/send-freestyle", async (req, res, next) => {
-//   try {
-//     newPost = { ...req.body };
-//     await PostModel.create(newPost);
-//     res.redirect("/");
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 router.post(
   "/send-freestyle",
@@ -46,13 +39,21 @@ router.post(
       newFreestyle.image = req.file.path;
     }
     try {
-      await FreestyleModel.create(newFreestyle);
       res.redirect("/");
     } catch (err) {
       next(err);
     }
   }
 );
+
+// router.get("/profile/:id", async function (req, res, next) {
+//   try {
+//     const users = await UserModel.findById(req.params.id);
+//     res.render("profile", { users });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 router.get("/publication/:id", async (req, res) => {
   try {
@@ -83,9 +84,21 @@ router.post(
       editFreestyle.image = req.file.path;
     }
     try {
-      await FreestyleModel.findByIdAndUpdate(req.params.id, editFreestyle, {
-        new: true,
-      });
+      // const userUpdate = await UserModel.findByIdAndUpdate(
+      //   req.session.currentUser._id,
+      //   { $pull: { freestyles: req.params.id } }
+      // );
+      const updatedF = await FreestyleModel.findByIdAndUpdate(
+        req.params.id,
+        editFreestyle,
+        {
+          new: true,
+        }
+      );
+      // const findUser = await UserModel.findByIdAndUpdate(
+      //   req.session.currentUser._id,
+      //   { $push: { freestyles: updatedF._id } }
+      // );
       res.redirect("/dashboard");
     } catch (err) {
       next(err);
@@ -95,7 +108,14 @@ router.post(
 
 router.get("/delete/:id", async function (req, res, next) {
   try {
-    await FreestyleModel.findByIdAndRemove(req.params.id);
+    const userUpdate = await UserModel.findByIdAndUpdate(
+      req.session.currentUser._id,
+      { $pull: { freestyles: req.params.id } }
+    );
+    const freestyleUpdate = await FreestyleModel.findByIdAndRemove(
+      req.params.id
+    );
+    console.log(freestyleUpdate);
     res.redirect("/dashboard");
   } catch (err) {
     next(err);
