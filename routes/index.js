@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const FreestyleModel = require("./../models/Freestyle");
+const UserModel = require("./../models/User");
 const uploader = require("./../config/cloudinary");
 const protectPrivateRoute = require("./../middlewares/protectPrivateRoute");
 
@@ -15,23 +16,9 @@ router.get("/dashboard", async function (req, res) {
   res.render("manageVideos", { freestyles });
 });
 
-router.get("/hotfive", function (req, res) {
-  res.render("hotFive");
-});
-
 router.get("/send-freestyle", function (req, res) {
   res.render("sendFreestyle");
 });
-
-// router.post("/send-freestyle", async (req, res, next) => {
-//   try {
-//     newPost = { ...req.body };
-//     await PostModel.create(newPost);
-//     res.redirect("/");
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 router.post(
   "/send-freestyle",
@@ -45,12 +32,21 @@ router.post(
     }
     try {
       await FreestyleModel.create(newFreestyle);
-      res.redirect("/dashboard");
+      res.redirect("/");
     } catch (err) {
       next(err);
     }
   }
 );
+
+// router.get("/profile/:id", async function (req, res, next) {
+//   try {
+//     const users = await UserModel.findById(req.params.id);
+//     res.render("profile", { users });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 router.get("/publication/:id", async (req, res) => {
   try {

@@ -15,24 +15,18 @@
                     <li class="nav-item animated-link">
                         <a href="/">Home</a>
                     </li>
+
+                    {{#if isLoggedIn}}
+                    {{/if}}
                     <li class="nav-item animated-link">
-                        <a href="/hotfive">Hot 5</a>
+                        <a href="/profile">Profile</a>
                     </li>
                     <li class="nav-item animated-link">
                         <a href="/dashboard">Dashboard</a>
                     </li>
-                    {{#if isLoggedIn}}
                     <li class="nav-item animated-link nav-item-admin">
                         <a href="/send-freestyle">Send my freestyle</a>
                     </li>
-
-                    {{/if}}
-
-                    {{#unless isLoggedIn}}
-                    <li class="nav-item animated-link nav-item-admin">
-                        <a href="/send-freestyle">Send my freestyle</a>
-                    </li>
-                    {{/unless}}
                 </ul>
             </div>
             <div class="flexed-item nav-end">
@@ -43,8 +37,8 @@
                 <a href="/signin" id="nav_login" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Sign in</span>
                 </a>
-
                 {{/unless}}
+
                 {{#if isLoggedIn}}
                 <a href="/logout" id="nav_logout" class="button-ternary flexed-item nav-end-item">
                     <span class="btn-text">Log out</span>
