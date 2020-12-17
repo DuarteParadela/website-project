@@ -1,0 +1,60 @@
+#freestyle-wrapper {
+  cursor: pointer;
+  width: 20%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  display: inline-block;
+}
+
+.freestyle-wrapper a {
+  color: black;
+}
+
+.square {
+  position: relative;
+  width: 100%;
+}
+
+#square:after {
+  content: "";
+  display: block;
+}
+
+.freestyle-heading {
+  text-decoration: none;
+}
+
+.image-style {
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.img-description {
+  position: absolute;
+  top: 230px;
+  bottom: 0;
+  left: 24px;
+  right: 0;
+  color: white;
+  font-size: 2rem;
+  visibility: hidden;
+  opacity: 0;
+  text-shadow: 1px 1px 2px black;
+
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.square:hover .img-description {
+  visibility: visible;
+  opacity: 1;
+  z-index: 88;
+}
+
+.image-style img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

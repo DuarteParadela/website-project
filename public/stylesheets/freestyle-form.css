@@ -3,9 +3,6 @@
   width: 30%;
   margin-right: 2rem;
 }
-.add-tag-form {
-  width: 30%;
-}
 
 .freestyle-manage-wrapper {
   padding: 2rem 1.2rem;
@@ -14,6 +11,11 @@
 .form-item-wrapper {
   flex-direction: column;
   margin-bottom: 1.1rem;
+}
+
+.center-input {
+  justify-content: center;
+  display: flex;
 }
 
 h3.freestyle-title {
@@ -29,9 +31,8 @@ h3.freestyle-title {
   font-family: "Source Sans Pro";
 }
 
-.label {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+#form_user .label {
+  padding-right: 20px;
 }
 
 .msgstatus {
