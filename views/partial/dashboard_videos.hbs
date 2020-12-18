@@ -1,38 +1,27 @@
-<div>
-    <br>
-    <div>TITLE : {{this.title}}</div>
-    <br>
+<div id="dashboard-wrapper">
 
-    <div>DESCRIPTION : {{this.description}}</div>
-    <br>
+    <div class="squarel">
+        <iframe src="{{this.url}}" frameborder="0"></iframe>
+        <p class="dashboard-heading">{{this.title}} by {{this.nickname}}</p>
+        <br>
+        <div>style: {{this.style}}</div>
+        <p>{{this.description}}</p>
+        <br>
+        <a href="{{this.social}}" class="network"> Network </a>
+        {{!-- <div>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></div>
+        <br> --}}
+        <div>
+            <p>Dopes : {{getArrLength this.likes}}</p>
+            <p>Whacks : {{getArrLength this.dislikes}}</p>
+        </div>
+        <br>
+        <aside>{{formatDate this.date}}</aside>
+    </div>
+    <div>
+        <button class="btn"><a href="/edit-freestyle/{{this._id}}" class="btn-text"
+                data-id-sneaker="{{this._id}}">Edit</a></button>
 
-    <div>SOCIAL NETWORK: {{this.social}}</div>
-    <br>
-
-    <div>MUSIC STYLE : {{this.style}}</div>
-    <br>
-
-    <div>FREESTYLE : <iframe src="{{this.url}}" frameborder="0"></iframe></div>
-    <br>
-
-    <div>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></div>
-    <br>
-
-    <div>LIKES : {{this.likes}}</div>
-    <br>
-
-    <div>DISLIKES : {{this.dislikes}}</div>
-    <br>
-
-    <div>DATE : {{formatDate this.date}}</div>
-    <br>
-
-
-    <button class="btn"><a href="/edit-freestyle/{{this._id}}" class="btn-text"
-            data-id-sneaker="{{this._id}}">Edit</a></button>
-
-    <span><button class="btn"><a href="/delete/{{this._id}}" class="btn-text"
-                data-id-sneaker="{{this._id}}">Delete</a></button></span>
-    <br>
-</div>
-<hr>
+        <span><button class="btn"><a href="/delete/{{this._id}}" class="btn-text"
+                    data-id-sneaker="{{this._id}}">Delete</a></button></span>
+    </div>
+    <hr>

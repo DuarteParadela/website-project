@@ -1,27 +1,26 @@
-<br>
-<span>Title : {{this.title}}</span>
-<br>
+<div id="dashboard-wrapper">
 
-<span>DESCRIPTION : {{this.description}}</span>
-<br>
-
-<span>SOCIAL NETWORK: {{this.social}}</span>
-<br>
-
-<span>MUSIC STYLE : {{this.style}}</span>
-<br>
-
-<span>FREESTYLE : {{this.url}}</iframe></span>
-<br>
-
-<span>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></span>
-<br>
-
-<span>LIKES : {{this.likes}}</span>
-<br>
-
-<span>DISLIKES : {{this.dislikes}}</span>
-<br>
-
-<span>DATE : {{formatDate this.date}}</span>
-<br>
+    <div class="squarel" class="resp-container">
+        <div class="resp-iframe">
+            <iframe src=" {{this.url}}" gesture="media" allow="encrypted-media" allowfullscreen="allowfullscreen">
+            </iframe>
+        </div>
+        <br>
+        <p class="dashboard-heading">{{this.title}} by {{this.nickname}}</p>
+        <br>
+        <div>style: {{this.style}}</div>
+        <p>{{this.description}}</p>
+        <br>
+        <a href="{{this.social}}" class="network"> Network </a>
+        {{!-- <div>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></div>
+        <br> --}}
+        <br>
+        <br>
+        <div>
+            <p>Dopes : {{getArrLength this.likes}}</p>
+            <p>Whacks : {{getArrLength this.dislikes}}</p>
+        </div>
+        <br>
+        <aside>{{formatDate this.date}}</aside>
+    </div>
+</div>

@@ -1,9 +1,71 @@
+.network {
+  color: rgb(133, 7, 7);
+  text-decoration: blanchedalmond;
+}
+
 .btn-text {
   text-decoration: none;
   color: black;
 }
 
 .btn {
+  padding: 0.5rem;
   background-color: wheat;
   border: none;
+  border-radius: 30%;
+}
+
+.dashboard-wrapper {
+  width: 77%;
+  padding: 2rem 1.5%;
+}
+
+.dashboard-infos {
+  margin-bottom: 2rem;
+}
+
+h4.dashboard-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.dashboard-grid {
+  flex-wrap: wrap;
+}
+
+.squarel {
+  position: relative;
+  width: 100%;
+}
+
+#squarel:after {
+  content: "";
+  display: block;
+}
+
+.dashboard-heading {
+  text-decoration: none;
+}
+
+#dashboard-wrapper {
+  text-align: center;
+  margin-top: 55px;
+}
+
+.dashboard-wrapper a {
+  color: black;
+}
+
+.resp-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.resp-iframe {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
