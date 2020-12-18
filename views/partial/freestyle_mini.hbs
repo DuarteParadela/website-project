@@ -7,17 +7,26 @@
                         <div class="image-style" style="background-image: url({{this.image}})"></div>
                 </a>
         </div>
+
         <div class="buttons">
                 {{#isInArray @root/currentUser._id this.likes}}
-                <div><a class="btns" href="/freestyles/{{this._id}}?action=likes">Unlike
+
+                <div><a id="dope-green" class="btns dope-green" href="/freestyles/{{this._id}}?action=likes">Dope
                                 {{getArrLength this.likes}}</a></div>
                 {{else}}
-                <a class="btns" href="/freestyles/{{this._id}}?action=likes">Like
+                <a class="btns" href="/freestyles/{{this._id}}?action=likes">Dope
                         {{getArrLength this.likes}}</a>
                 {{/isInArray}}
-                <a class="btns" href="/freestyles/{{this._id}}?action=dislikes">Dislikes
+
+                {{#isInArray @root/currentUser._id this.dislikes}}
+                <a id="whack-red" class="btns whack-red" href="/freestyles/{{this._id}}?action=dislikes">Whack
                         {{getArrLength
                         this.dislikes}}</a>
-        </div>
 
+                {{else}}
+                <a class="btns whack" href="/signin">Whack
+                        {{getArrLength
+                        this.dislikes}}</a>
+                {{/isInArray}}
+        </div>
 </div>

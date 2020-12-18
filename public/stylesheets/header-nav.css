@@ -61,7 +61,7 @@ h2.logo-item {
 }
 
 .nav-item a {
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 400;
   text-decoration: none;
@@ -85,6 +85,6 @@ h2.logo-item {
 
 .btn-text {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 400;
 }

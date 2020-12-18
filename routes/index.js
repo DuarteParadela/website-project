@@ -13,7 +13,7 @@ router.get("/", async function (req, res) {
   res.render("index", { freestyles, highlighted });
 });
 
-router.get("/dashboard", async function (req, res) {
+router.get("/dashboard", protectPrivateRoute, async function (req, res) {
   const users = await UserModel.findById(req.session.currentUser._id).populate(
     "freestyles"
   );
@@ -24,7 +24,7 @@ router.get("/dashboard", async function (req, res) {
   res.render("manageVideos", { freestyles });
 });
 
-router.get("/send-freestyle", function (req, res) {
+router.get("/send-freestyle", protectPrivateRoute, function (req, res) {
   res.render("sendFreestyle");
 });
 
@@ -59,14 +59,18 @@ router.get("/publication/:id", async (req, res) => {
   }
 });
 
-router.get("/edit-freestyle/:id", async function (req, res, next) {
-  try {
-    const freestyle = await FreestyleModel.findById(req.params.id);
-    res.render("editFreestyle", freestyle);
-  } catch (err) {
-    next(err);
+router.get(
+  "/edit-freestyle/:id",
+  protectPrivateRoute,
+  async function (req, res, next) {
+    try {
+      const freestyle = await FreestyleModel.findById(req.params.id);
+      res.render("editFreestyle", freestyle);
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
 
 router.post(
   "/edit-freestyle/:id",
@@ -93,7 +97,7 @@ router.post(
   }
 );
 
-router.get("/delete/:id", async function (req, res, next) {
+router.get("/delete/:id", protectPrivateRoute, async function (req, res, next) {
   try {
     const userUpdate = await UserModel.findByIdAndUpdate(
       req.session.currentUser._id,
@@ -102,8 +106,9 @@ router.get("/delete/:id", async function (req, res, next) {
     const freestyleUpdate = await FreestyleModel.findByIdAndRemove(
       req.params.id
     );
-    console.log(freestyleUpdate);
-    res.redirect("/dashboard");
+    req.session.currentUser.role === "admin"
+      ? res.redirect("/dashboardAll")
+      : res.redirect("/dashboard");
   } catch (err) {
     next(err);
   }
