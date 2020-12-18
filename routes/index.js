@@ -74,6 +74,7 @@ router.get(
 
 router.post(
   "/edit-freestyle/:id",
+  protectPrivateRoute,
   uploader.single("image"),
   async (req, res, next) => {
     const editFreestyle = { ...req.body };
