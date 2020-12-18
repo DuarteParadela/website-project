@@ -114,7 +114,7 @@ router.get("/delete/:id", protectPrivateRoute, async function (req, res, next) {
   }
 });
 
-router.get("/freestyles/:id", async (req, res, next) => {
+router.get("/freestyles/:id", protectPrivateRoute, async (req, res, next) => {
   const userId = req.session.currentUser._id;
   const action = req.query.action;
 
