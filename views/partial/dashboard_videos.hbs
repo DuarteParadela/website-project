@@ -1,7 +1,7 @@
 <div id="dashboard-wrapper">
 
     <div class="squarel">
-        <iframe src="{{this.url}}" frameborder="0"></iframe>
+        <iframe src="{{this.url}}" class="iframeboard" frameborder="0"></iframe>
         <p class="dashboard-heading">{{this.title}} by {{this.nickname}}</p>
         <br>
         <div>style: {{this.style}}</div>
@@ -18,10 +18,9 @@
         <aside>{{formatDate this.date}}</aside>
     </div>
     <div>
-        <button class="btn"><a href="/edit-freestyle/{{this._id}}" class="btn-text"
+        <button class="btn"><a href="/edit-freestyle/{{this._id}}" class="btn-textt"
                 data-id-sneaker="{{this._id}}">Edit</a></button>
 
-        <span><button class="btn"><a href="/delete/{{this._id}}" class="btn-text"
+        <span><button class="btn"><a href="/delete/{{this._id}}" class="btn-textt"
                     data-id-sneaker="{{this._id}}">Delete</a></button></span>
     </div>
-    <hr>
