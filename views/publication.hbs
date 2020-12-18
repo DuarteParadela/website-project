@@ -11,16 +11,16 @@
 <span>MUSIC STYLE : {{this.style}}</span>
 <br>
 
-<span>FREESTYLE : {{this.url}}</iframe></span>
+<span>FREESTYLE : <iframe src="{{this.url}}" frameborder="0"></iframe></span>
 <br>
 
 <span>IMAGE : <img height="225" width="400" src="{{this.image}}" alt=""></span>
 <br>
 
-<span>LIKES : {{this.likes}}</span>
+<span>LIKES : {{getArrLength this.likes}}</span>
 <br>
 
-<span>DISLIKES : {{this.dislikes}}</span>
+<span>DISLIKES : {{getArrLength this.dislikes}}</span>
 <br>
 
 <span>DATE : {{formatDate this.date}}</span>
