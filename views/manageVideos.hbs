@@ -1,15 +1,21 @@
-<div class="big-container manage-products-wrapper">
-    <h3 class="manage-products-title">Your videos</h3>
-</div>
-<div>
-    {{#each freestyles}}
+<section class="dashboard-wrapper">
+    <div class="dashboard-infos">
+        <h4 class="dashboard-title">
+            Your videos
+        </h4>
+    </div>
 
-    {{> dashboard_videos}}
+    <div id="dashboard_grid" class="dashboard-grid flexed-dash">
 
-    {{/each}}
+        {{#each freestyles}}
 
-    {{#unless freestyles}}
-    <p>no freestyles</p>
-    {{/unless}}
+        {{> dashboard_videos}}
 
-</div>
+        {{/each}}
+
+        {{#unless freestyles}}
+        <p>no freestyles</p>
+        {{/unless}}
+
+    </div>
+</section>

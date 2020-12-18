@@ -5,14 +5,14 @@ const FreestyleModel = require("../models/Freestyle");
 
 const freestyles = [
   {
+    nickname: "The Kid LAROI",
     title: "Let Her Go",
-    description: "The Kid LAROI",
-    social: "https://www.instagram.com/thekidlaroi/?hl=fr",
+    description: "Australian rapper, singer, and songwriter",
+    social: "http://instagram.com/thekidlaroi",
     style: "rap",
-    url:
-      "https://www.youtube.com/watch?v=9fteLHb24A4&ab_channel=LyricalLemonade",
+    url: "https://www.youtube.com/embed/9fteLHb24A4",
     image:
-      "https://res.cloudinary.com/anojan/image/upload/v1607635448/adidas_nqws23.jpg",
+      "https://res.cloudinary.com/anojan/image/upload/v1608256763/The_Kid_Laroi_vv8cja.jpg",
     likes: [],
     dislikes: [],
   },
